@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- adapted from codingsnow.com https://www.codingsnow.com/2021/01/responsive-website-landing-page-design.html -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>Homepage</title>
+</head>
+
+<body>
+    <section>
+        <!-- Creating the navbar in this part -->
+        <input type="checkbox" id="check">
+        <header>
+            <h2><a href="/" class="logo">YNC M0ds</a></h2>
+            <div class="navigation">
+                <a href="/list_reviews">Reviews</a>
+                <a href="/about_us">About Us</a>
+                <a href="/create_review" class="home-btn">Submit Review</a>
+            </div>
+            <label for="check">
+                <i class="fas fa-bars menu-btn"></i>
+                <i class="fas fa-times close-btn"></i>
+            </label>
+        </header>
+
+        <!-- Homepage Information -->
+        <div class="content">
+            <div class="info">
+                <h2>Welcome to the <br><span>Yale-NUS Course Review Website!</span></h2>
+                <p>Sample website built by Callista Yin, Hana Miura, and Felix Wang for the YSC2221 Introduction to Python module, deployed on Python Flask</p>
+                    <a href="/list_reviews" class="info-btn">Read Reviews</a>
+                    <a href="/create_review" class="info-btn">Submit Review</a>
+            </div>
+        </div>
+
+        <!-- Random footer information -->
+        <div class="media-icons">
+            <a href="https://github.com/firstanniversary/IntroPython_CourseReviewSite"><i class ="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/yeokhengmeng//"><i class ="fab fa-linkedin"></i></a>
+            <a href="https://yeokhengmeng.com/"><i class ="fab fa-google"></i></a>
+        </div>
+    </section>
+</body>
+</html>

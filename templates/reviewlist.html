@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- adapted from codingsnow.com https://www.codingsnow.com/2021/01/responsive-website-landing-page-design.html -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>Read Reviews</title>
+</head>
+
+<body>
+    <section>
+        <!-- Creating the navbar in this part -->
+        <input type="checkbox" id="check">
+        <header>
+            <h2><a href="../" class="logo">YNC M0ds</a></h2>
+            <div class="navigation">
+                <a href="/list_reviews">Reviews</a>
+                <a href="../about_us">About Us</a>
+                <a href="../create_review" class="home-btn">Submit Review</a>
+            </div>
+            <label for="check">
+                <i class="fas fa-bars menu-btn"></i>
+                <i class="fas fa-times close-btn"></i>
+            </label>
+        </header>
+
+    <!-- If and for loop/logic using python via flask syntax.  -->
+    <!-- If there are no reviews, a status message will print. Else a div will print for every review. -->
+    {% if reviews|length == 0 %}
+    <div class="noreview">
+        <p id="noreviews">No Reviews Found, Give a Review? :)</p>
+        <a href="../create_review" class="home-btn">Give a Review Here!</a>
+    </div>
+
+
+    {%else%}
+    {%for review in reviews%}
+    <div class="card-container">
+        <div class="card">
+            <div id="coursename">
+                <p>{{review.course_name}}</p>
+            </div>
+            <div class="card-info">
+                <p>Course Code: {{review.course_code}}</p>
+                <p>Rrofessor: {{review.professor}}</p>
+                <p>Year: {{review.year}}</p>
+                <p>Rating: {{review.rating}}</p>
+                <p>Workload: {{review.workload}}</p>
+                <p>Grading: {{review.grading}}</p>
+                <p>Review: {{review.review}}</p>
+
+                <form method=post action="/delete_review/">
+                    <input type="hidden" name="review_id" value="{{review.id}}" />
+                    <input type="submit" value="Delete"/>
+                </form>
+            </div>
+        </div>        
+    </div>
+
+    <!-- the loops require syntax for it to end, as the syntax is slightly different from regular python. -->
+    {%endfor%}
+    {%endif%}
+
+    <a href="../">
+        <input type="button" value="Back Home" />
+    </a>
+
+    <!-- Random footer information -->
+    <div class="media-icons">
+        <a href="https://github.com/firstanniversary/IntroPython_CourseReviewSite"><i class ="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yeokhengmeng//"><i class ="fab fa-linkedin"></i></a>
+        <a href="https://yeokhengmeng.com/"><i class ="fab fa-google"></i></a>
+    </div>
+</body>
+
+</html>

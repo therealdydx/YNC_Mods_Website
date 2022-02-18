@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- adapted from codingweblab.com https://www.codinglabweb.com/2021/01/responsive-registration-form-in-html-css.html -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>Submit Review</title>
+</head>
+
+<body>
+    <section>
+        <!-- Creating the navbar in this part -->
+        <input type="checkbox" id="check">
+        <header>
+            <h2><a href="../" class="logo">YNC M0ds</a></h2>
+            <div class="navigation">
+                <a href="../list_reviews">Reviews</a>
+                <a href="../about_us">About Us</a>
+                <a href="/create_review" class="home-btn">Submit Review</a>
+            </div>
+            <label for="check">
+                <i class="fas fa-bars menu-btn"></i>
+                <i class="fas fa-times close-btn"></i>
+            </label>
+        </header>
+
+        <!-- Form Information -->
+        <div class="container">
+            <div class="title">Submit Your YNC Course Reviews Here:</div>
+            <div class="form-body">
+                <form method="POST">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <!-- These parts are to input the details inside -->
+                            <span class="details">Course Name</span>
+                            <input type="text" placeholder="Course Name" name="course_name"/>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Course Code</span>
+                            <input type="text" placeholder="Course Code" name="course_code"/>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Professor</span>
+                            <input type="text" placeholder="Professor" name="professor"/>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Year</span>
+                            <input type="number" placeholder="Year" name="year" min="2013" max={{max_year}}/>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Overall Rating (1-5, 1 worst)</span>
+                            <input type="number" placeholder="Rating" name="rating" min="1" max="5"/>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Workload Rating (1-5, 1 lowest)</span>
+                            <input type="number" placeholder="Rating" name="workload" min="1" max="5"/>
+                        </div>
+        
+                        <div class="input-box">
+                            <span class="details">Grade Strictness (1-5, 1 strict)</span>
+                            <input type="number" placeholder="Professor" name="grading" min="1" max="5"/>
+                        </div>
+
+                        <div class="input-box"></div>
+        
+                        <div class="input-box">
+                            <span class="details">Type Your Review</span>
+                            <textarea name="review" placeholder="Review"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="button">
+                        <input type="submit" value="Submit">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    
+
+        <!-- Random footer information -->
+        <div class="media-icons">
+            <a href="https://github.com/firstanniversary/IntroPython_CourseReviewSite"><i class ="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/yeokhengmeng//"><i class ="fab fa-linkedin"></i></a>
+            <a href="https://yeokhengmeng.com/"><i class ="fab fa-google"></i></a>
+        </div>
+    </section>
+</body>
+</html>
